@@ -54,12 +54,13 @@ const config: Config = {
       },
       fontFamily: {
         inter: ["var(--font-inter)"],
-        "space-grotesk": ["var(--font-space-grotesk)"],
+        spaceGrotesk: ["var(--font-space-Grotesk)"],
+        "space-grotesk": ["var(--font-Space-grotesk)"],
       },
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  // plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };
 
 export default config;
