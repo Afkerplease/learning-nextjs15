@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
@@ -13,7 +14,12 @@ const questions = [
       { _id: "1", name: "react" },
       { _id: "2", name: "javascript" },
     ],
-    author: { _id: "1", name: "john doe" },
+    author: {
+      _id: "1",
+      name: "john doe",
+      image:
+        "https://static.vecteezy.com/ti/vecteur-libre/p1/2002403-homme-avec-barbe-avatar-personnage-icone-isole-gratuit-vectoriel.jpg",
+    },
     upvotes: 10,
     answers: 5,
     views: 100,
@@ -27,7 +33,12 @@ const questions = [
       { _id: "1", name: "javascript" },
       { _id: "2", name: "javascript" },
     ],
-    author: { _id: "1", name: "john doe" },
+    author: {
+      _id: "1",
+      name: "john doe",
+      image:
+        "https://img.freepik.com/vecteurs-premium/image-profil-avatar-homme-isolee-arriere-plan-image-profil-avatar-pour-homme_1293239-4866.jpg",
+    },
     upvotes: 10,
     answers: 5,
     views: 100,
@@ -63,19 +74,18 @@ const Home = async ({ searchParams }: SearchParams) => {
           <Link href={ROUTES.ASK_QUESTION}>Ask a Question</Link>
         </Button>
       </section>
-      <section className=" mt-11">
-        {" "}
+      <section>
         <LocalSearch
           imgSrc={"/icons/search.svg"}
           placeholder="Search questions..."
           otherClasses="flex-1"
           route="/"
-        />{" "}
+        />
       </section>
       <HomeFilter />
       <div className=" mt-10 flex w-full flex-col gap-6">
         {filteredQuestions.map((question) => (
-          <h1 key={question._id}>{question.title} </h1>
+          <QuestionCard key={question._id} question={question} />
         ))}
       </div>
     </>
